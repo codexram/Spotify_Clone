@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+  background-color: #191414;
+  color: #fff;
+}
+
+.spotify-auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #191414 60%, #1db954 100%);
+}
+
+.spotify-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.spotify-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  background: #191414;
+  box-shadow: 0 0 20px #1db95444;
+}
+
+.spotify-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1db954;
+  letter-spacing: 2px;
+}
+
+.auth-forms-wrapper {
+  background: #121212;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 #00000060;
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 340px;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.forms-container {
+  width: 100%;
+}
+
+.signin-signup {
+  width: 100%;
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: opacity 0.5s, transform 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+form.sign-in-form {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+form.sign-up-form {
+  transform: translateX(100%);
+}
+
+.signin-signup.show-signup form.sign-in-form {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+.signin-signup.show-signup form.sign-up-form {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #1db954;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.input-field {
+  width: 100%;
+  background: #232323;
+  margin: 0.7rem 0;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.2rem;
+  box-shadow: 0 2px 8px #00000020;
+}
+
+.input-field i {
+  color: #1db954;
+  font-size: 1.1rem;
+  margin-right: 0.8rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  flex: 1;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 400;
+}
+
+.btn {
+  width: 100%;
+  background-color: #1db954;
+  border: none;
+  outline: none;
+  height: 44px;
+  border-radius: 22px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px #1db95433;
+}
+
+.btn:hover {
+  background-color: #1ed760;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px #1db95455;
+}
+
+.switch-text {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 0.7rem 0 1.2rem 0;
+}
+
+.switch-text a {
+  color: #1db954;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.switch-text a:hover {
+  color: #1ed760;
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.4rem;
+  color: #fff;
+  border-radius: 50%;
+  border: 2px solid #232323;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  background: #232323;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon:hover {
+  color: #1db954;
+  border-color: #1db954;
+  background: #191414;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #1db95455;
+}
+
+@media (max-width: 500px) {
+  .auth-forms-wrapper {
+    min-width: unset;
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
+  .spotify-title {
+    font-size: 1.3rem;
+  }
+  .spotify-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* === Glassmorphism and Animated Background === */
+.background-animated {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(32px);
+  opacity: 0.5;
+  animation: float 12s ease-in-out infinite;
+}
+.shape1 {
+  width: 320px; height: 320px;
+  background: linear-gradient(135deg, #1db954 60%, #191414 100%);
+  top: -80px; left: -80px;
+  animation-delay: 0s;
+}
+.shape2 {
+  width: 220px; height: 220px;
+  background: linear-gradient(135deg, #191414 60%, #1db954 100%);
+  bottom: -60px; right: -60px;
+  animation-delay: 3s;
+}
+.shape3 {
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, #1db954 60%, #232323 100%);
+  top: 60%; left: 70%;
+  animation-delay: 6s;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.08); }
+}
+
+.glass {
+  background: rgba(18, 18, 18, 0.7);
+  box-shadow: 0 8px 32px 0 #00000060;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border-radius: 24px;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  z-index: 1;
+}
+
+/* === Animated Form Transitions === */
+.signin-signup {
+  min-height: 380px;
+}
+form {
+  transition: opacity 0.6s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+form.sign-in-form {
+  z-index: 2;
+}
+form.sign-up-form {
+  z-index: 1;
+}
+.signin-signup.show-signup form.sign-in-form {
+  z-index: 1;
+}
+.signin-signup.show-signup form.sign-up-form {
+  z-index: 2;
+}
+
+/* === Animated Inputs === */
+.animated-input input {
+  transition: box-shadow 0.3s, border 0.3s;
+  border-bottom: 2px solid transparent;
+}
+.animated-input input:focus {
+  box-shadow: 0 0 0 2px #1db95455;
+  border-bottom: 2px solid #1db954;
+  background: rgba(29,185,84,0.05);
+}
+
+/* === Animated Buttons === */
+.animated-btn {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.animated-btn::before {
+  content: '';
+  position: absolute;
+  left: -75%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, #1db95455 0%, #1ed76055 100%);
+  transform: skewX(-20deg);
+  transition: left 0.4s cubic-bezier(.77,0,.18,1);
+  z-index: 0;
+}
+.animated-btn:hover::before {
+  left: 120%;
+}
+.animated-btn:hover {
+  background-color: #1ed760;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 24px #1db95455;
+}
+.animated-btn:active {
+  transform: scale(0.98);
+}
+
+/* === Animated Social Icons === */
+.animated-icon {
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s;
+}
+.animated-icon:hover {
+  transform: scale(1.18) rotate(-8deg);
+  color: #1ed760;
+  border-color: #1ed760;
+  box-shadow: 0 0 16px #1db95455;
+}
+
+/* === Responsive Tweaks for Glass and Background === */
+@media (max-width: 500px) {
+  .background-animated .shape1 {
+    width: 160px; height: 160px; top: -40px; left: -40px;
+  }
+  .background-animated .shape2 {
+    width: 110px; height: 110px; bottom: -30px; right: -30px;
+  }
+  .background-animated .shape3 {
+    width: 90px; height: 90px; top: 70%; left: 60%;
+  }
+  .glass {
+    border-radius: 14px;
+  }
+}
